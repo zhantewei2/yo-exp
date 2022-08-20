@@ -1,0 +1,57 @@
+@use "sass:map";
+@use "vars" as *;
+
+.yo-upload-block{
+  width: map.get($yo-upload,block-width);
+  height: map.get($yo-upload,block-height);
+  background: map.get($yo-upload,block-bg);
+  border-radius: var(--radius-base);
+  position:relative;
+  ._upload-img{
+    height: map.get($yo-upload,upload-img-len);
+    width: map.get($yo-upload,upload-img-len);
+  }
+  ._load-img{
+    display:none;
+    height: map.get($yo-upload, load-img-len);
+    width: map.get($yo-upload, load-img-len);
+  }
+  ._show-img{
+    position:absolute;
+    z-index:2
+  }
+  ._close-img{
+    z-index:2;
+    position:absolute;
+    top:.3em;
+    right: .3em;
+    width: 1.5em;
+    height: 1.5em;
+    background : map.get($yo-upload,close-bg);
+    border-radius :var(--radius-base);
+    cursor: pointer;
+  }
+  &:hover{
+    background: map.get($yo-upload,block-hover-bg);
+  }
+
+  ._input{
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &.__load{
+    ._load-img{
+      display: inline-block;
+    }
+    ._upload-img{
+      display:none;
+    }
+    ._input{
+      cursor: not-allowed;
+    }
+    &:hover{
+      background: var(--color-bg2);
+    }
+  }
+}

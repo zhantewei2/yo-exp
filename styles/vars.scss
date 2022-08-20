@@ -1,0 +1,45 @@
+@use "sass:map";
+
+$yo-hover-bg: var(--color-bg2);
+$yo-card:() !default;
+$yo-card:map.merge(
+    (
+      padding: 2rem 2rem 2rem 2rem,
+      header-padding: 0 0 1.5rem 0,
+      header-bottom-border: false,
+      content-padding: 0,
+      content-bg:var(--color-bg),
+      footer-padding: 1.5rem 0 0 0,
+      bg: var(--color-bg),
+      margin: 1rem 1rem 1.5rem 1rem,
+      radius: var(--radius-medium),
+      title-font-weight: 700,
+      title-font-size: 1.2rem
+    ),$yo-card
+);
+
+
+$yo-group:() !default;
+$yo-group: map.merge(
+    (
+      span-count:5,
+      row-decorator-height: 1.4em,
+      label-width: 7em,
+      cell-content-margin-left: 1em,
+      cell-dt-text-align: right
+    ),$yo-group
+);
+
+$yo-upload: () !default;
+
+$yo-upload: map.merge(
+    (
+        block-width: 7rem,
+        block-height: 7rem,
+        block-bg: var(--color-bg2),
+        block-hover-bg: var(--color-bg3),
+        load-img-len: 2rem,
+        upload-img-len: 2rem,
+        close-bg: var(--color-bg-deep3)
+    )
+,$yo-upload);

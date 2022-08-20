@@ -1,0 +1,62 @@
+@use "sass:map";
+@use "sass:string";
+
+$media: () !default;
+
+$media: map.merge((
+  4k: 4000,
+  2k: 2000,
+  1k: 1900,
+  xxl: 1600,
+  xl: 1300,
+  l: 1020,
+  m: 760,
+  s: 480,
+  i: 0
+),$media);
+
+$media-query:();
+$pre-media-v: false;
+@each $k,$v in $media{
+  $str: "screen";
+  @if $v!=0 {
+    $str: $str+" and (min-width: #{$v}px)";
+  }
+  @if $pre-media-v {
+    $str: $str+" and (max-width: #{$pre-media-v - 1}px)"
+  }
+  $pre-media-v: $v;
+  $media-query: map.set($media-query,$k,string.unquote($str));
+}
+
+@mixin width_media_rule($k){
+  $query: map.get($media-query,$k);
+  @media #{$query}{
+    @content;
+  }
+}
+@mixin width_media_max($k){
+  $mobile-w: map.get($media,$k);
+  $query: "screen and (max-width: #{$mobile-w}px)";
+  @media #{$query}{
+    @content;
+ }
+}
+@mixin width_media_mobile(){
+  @include width_media_max(m){
+    @content;
+  }
+}
+
+$media-font-size: () !default;
+$media-font-size: (
+  i: 16px,
+  s: 15px,
+  m: 14px,
+  l: 12px,
+  xl: 13px,
+  xxl: 14px,
+  1k: 15px,
+  2k: 18px,
+  4k: 20px
+);

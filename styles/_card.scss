@@ -1,0 +1,29 @@
+@use "vars" as *;
+@use "sass:map";
+
+.yo-card{
+  background: map.get($yo-card,bg);
+  padding: map.get($yo-card,padding);
+  margin: map.get($yo-card,margin);
+  border-radius: map.get($yo-card,radius);
+}
+.yo-card-header{
+  padding: map.get($yo-card,header-padding);
+  $bottom-border: map.get($yo-card,header-bottom-border);
+  @if $bottom-border {
+    border-bottom: $bottom-border;
+  }
+  ._yo-card-header-title{
+    font-size: map.get($yo-card,title-font-size);
+    color: var(--color-font-title);
+    font-weight: map.get($yo-card,title-font-weight);
+  }
+}
+.yo-card-content{
+  padding: map.get($yo-card,content-padding);
+  background: map.get($yo-card,content-bg)
+}
+
+.yo-card-footer{
+  padding: map.get($yo-card,footer-padding);
+}

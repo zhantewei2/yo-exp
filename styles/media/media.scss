@@ -1,0 +1,9 @@
+@use "media-vars" as *;
+
+@each $k,$v in $media-font-size{
+  @include width_media_rule($k){
+    html{
+      --size-font: #{$v}
+    }
+  }
+}

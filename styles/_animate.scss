@@ -1,0 +1,6 @@
+.yo-fade-enter-active,.yo-fade-leave-active{
+  transition: opacity .3s ease-out;
+}
+.yo-fade-enter-from,.yo-fade-leave-to{
+  opacity:0;
+}

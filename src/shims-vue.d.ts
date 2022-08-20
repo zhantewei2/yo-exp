@@ -4,3 +4,20 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare module "*.svg"{
+  const a:any;
+  export default a;
+}
+
+
+declare module "*.png"{
+  const a:any;
+  export default a;
+}
+
+
+declare module "*.jpg"{
+  const a:any;
+  export default a;
+}

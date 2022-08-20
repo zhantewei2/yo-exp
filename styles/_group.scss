@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "vars" as *;
+
+@use "~@voyo/core-style/lib/components-dep" as yo;
+.yo-group{
+  display:grid;
+  grid-auto-rows: auto;
+  grid-auto-flow: row;
+  &.__dense{
+    grid-auto-flow: row dense;
+  }
+}
+
+
+@for $i from 1 through map.get($yo-group,span-count){
+  .yo-group-#{$i}{
+    grid-template-columns: repeat($i,1fr);
+    @for $j from 1 through $i{
+      .yo-group-cell-span-#{$j}{
+        grid-column: auto/span $j;
+      }
+    }
+  }
+}
+
+.yo-group-cell{
+  ._cell-important{
+    color:red;
+    margin-right: .3em;
+  }
+  ._cell-decorator{
+    padding-left: calc(  map.get($yo-group,label-width) + map.get($yo-group,cell-content-margin-left));
+    height: map.get($yo-group,row-decorator-height);
+  }
+  &>dl{
+    display:flex;
+    align-items: center;
+    margin:0;
+    &>dt{
+      text-align: map.get($yo-group,cell-dt-text-align);
+      width: map.get($yo-group,label-width);
+    }
+    &>dd{
+      @include yo.Flex-1();
+      margin-left: 1em;
+    }
+  }
+}
+.yo-group-cell-error{
+  font-size: var(--size-font-small);
+  color :var(--color-error);
+}
+

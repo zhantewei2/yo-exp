@@ -12,6 +12,8 @@
     "allowSyntheticDefaultImports": true,
     "strictPropertyInitialization": false,
     "sourceMap": true,
+    "declaration": true,
+    "declarationDir": "types",
     "baseUrl": ".",
     "types": [
       "webpack-env"

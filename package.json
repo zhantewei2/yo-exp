@@ -1,10 +1,14 @@
 {
-  "name": "yo-exp2",
+  "name": "@voyo/yo-exp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:lib": "webpack"
+    "build:lib": "webpack",
+    "build:declare": "webpack --env declare=1",
+    "build:d": "tsc -d"
   },
+  "module": "lib/index.js",
+  "types": "types",
   "dependencies": {
     "@voyo/core": "^2.0.0",
     "@voyo/core-style": "^2.5.3",

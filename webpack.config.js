@@ -1,3 +1,4 @@
+
 const {VueLoaderPlugin} =require("vue-loader");
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -17,13 +18,7 @@ const vueModuleCssLoader=({cssOptions={importLoaders:2,sourceMap:false}})=>[
   {loader:"postcss-loader"},
 ]
 
-const tsLoaderConfig={
-  transpileOnly: true,
-  happyPackMode: false,
-  appendTsxSuffixTo: [
-    '\\.vue$'
-  ]
-};
+
 
 const babelConfig={
 
@@ -31,15 +26,26 @@ const babelConfig={
 
 const sassOptions={};
 
-module.exports=()=>{
+module.exports=({env,declare})=>{
+
+  const tsLoaderConfig={
+    transpileOnly: true,
+    happyPackMode: false,
+    appendTsxSuffixTo: [
+      '\\.vue$'
+    ]
+  };
 
   return {
     mode: "production",
     entry:{
-      index: join("src/index.ts")
+      index: !declare?join("src/index.ts"): join("src/index-type.ts")
     },
     experiments: {
       outputModule: true
+    },
+    optimization: {
+      minimize: false
     },
     target: 'browserslist',
     output:{
@@ -61,9 +67,9 @@ module.exports=()=>{
     },
     // externalsType: "module",
     externals: {
-      'vue':'vue',
-      'vue-property-decorator':'vue-property-decorator',
-      'vue-class-component': 'vue-class-component',
+      // 'vue':'vue',
+      // 'vue-property-decorator':'vue-property-decorator',
+      // 'vue-class-component': 'vue-class-component',
       "@ztwx/utils":"@ztwx/utils"
     },
     module: {

@@ -67,9 +67,9 @@ module.exports=({env,declare})=>{
     },
     // externalsType: "module",
     externals: {
-      // 'vue':'vue',
-      // 'vue-property-decorator':'vue-property-decorator',
-      // 'vue-class-component': 'vue-class-component',
+      'vue':'vue',
+      'vue-property-decorator':'vue-property-decorator',
+      'vue-class-component': 'vue-class-component',
       "@ztwx/utils":"@ztwx/utils"
     },
     module: {

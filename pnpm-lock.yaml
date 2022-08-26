@@ -16,6 +16,7 @@ specifiers:
   eslint-plugin-vue: ^9.3.0
   fork-ts-checker-webpack-plugin: ^7.2.13
   postcss-loader: ^7.0.1
+  rxjs: '6'
   sass: ^1.54.5
   sass-loader: ^13.0.2
   ts-loader: ^9.3.1
@@ -34,6 +35,7 @@ dependencies:
   '@voyo/core-style': registry.npmmirror.com/@voyo/core-style/2.5.3
   '@ztwx/form': registry.npmmirror.com/@ztwx/form/2.1.3
   '@ztwx/utils': registry.npmmirror.com/@ztwx/utils/1.12.2
+  rxjs: 6.6.7
 
 devDependencies:
   '@babel/core': registry.npmmirror.com/@babel/core/7.18.10
@@ -74,6 +76,17 @@ packages:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
     requiresBuild: true
     optional: true
+
+  /rxjs/6.6.7:
+    resolution: {integrity: sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==}
+    engines: {npm: '>=2.0.0'}
+    dependencies:
+      tslib: 1.14.1
+    dev: false
+
+  /tslib/1.14.1:
+    resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: false
 
   registry.npmmirror.com/@achrinza/node-ipc/9.2.5:
     resolution: {integrity: sha512-kBX7Ay911iXZ3VZ1pYltj3Rfu7Ow9H7sK4H4RSfWIfWR2JKNB40K808wppoRIEzE2j2hXLU+r6TJgCAliCGhyQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@achrinza/node-ipc/-/node-ipc-9.2.5.tgz}
@@ -1882,7 +1895,7 @@ packages:
       '@voyo/core-style': registry.npmmirror.com/@voyo/core-style/2.5.3
       '@ztwx/utils': registry.npmmirror.com/@ztwx/utils/1.12.2
       animejs: registry.npmmirror.com/animejs/3.2.1
-      rxjs: registry.npmmirror.com/rxjs/6.6.7
+      rxjs: 6.6.7
     dev: false
 
   registry.npmmirror.com/@vue/babel-helper-vue-jsx-merge-props/1.2.1:
@@ -2436,7 +2449,7 @@ packages:
       '@danmarshall/ts-docs-gen': registry.npmmirror.com/@danmarshall/ts-docs-gen/0.2.0
       '@types/node': registry.npmmirror.com/@types/node/13.13.52
       '@types/webpack-env': registry.npmmirror.com/@types/webpack-env/1.18.0
-      rxjs: registry.npmmirror.com/rxjs/6.6.7
+      rxjs: 6.6.7
       ts-file-parser: registry.npmmirror.com/ts-file-parser/0.0.16
       tslib: registry.npmmirror.com/tslib/1.14.1
       typescript: registry.npmmirror.com/typescript/3.9.10
@@ -5066,15 +5079,6 @@ packages:
       queue-microtask: registry.npmmirror.com/queue-microtask/1.2.3
     dev: true
 
-  registry.npmmirror.com/rxjs/6.6.7:
-    resolution: {integrity: sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rxjs/-/rxjs-6.6.7.tgz}
-    name: rxjs
-    version: 6.6.7
-    engines: {npm: '>=2.0.0'}
-    dependencies:
-      tslib: registry.npmmirror.com/tslib/1.14.1
-    dev: false
-
   registry.npmmirror.com/safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/safe-buffer/-/safe-buffer-5.1.2.tgz}
     name: safe-buffer
@@ -5248,7 +5252,7 @@ packages:
     name: simplr-logger
     version: 1.0.1
     dependencies:
-      tslib: registry.npmmirror.com/tslib/1.14.1
+      tslib: 1.14.1
     dev: false
 
   registry.npmmirror.com/slash/3.0.0:

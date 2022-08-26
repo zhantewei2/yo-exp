@@ -70,7 +70,9 @@ module.exports=({env,declare})=>{
       'vue':'vue',
       'vue-property-decorator':'vue-property-decorator',
       'vue-class-component': 'vue-class-component',
-      "@ztwx/utils":"@ztwx/utils"
+      "@ztwx/utils":"@ztwx/utils",
+      "@voyo/core":"@voyo/core",
+      "rxjs":"rxjs"
     },
     module: {
       rules: [

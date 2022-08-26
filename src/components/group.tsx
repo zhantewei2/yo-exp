@@ -25,10 +25,14 @@ const resizeObserver = window.ResizeObserver
   ? new window.ResizeObserver((entries: any) => {
       for (const entry of entries) {
         const gridCount = setting.group.dynamicGrid(entry.contentRect.width);
-        entry.target.yoCssManager.replaceClass(
-          GroupResizeCSSKey,
-          `yo-group-${gridCount}`
-        );
+        const gridCss=  `yo-group-${gridCount}`;
+
+        if(gridCss!=entry.target.yoCssGrid){
+          entry.target.yoCssManager.replaceClass(
+            GroupResizeCSSKey,
+            entry.target.yoCssGrid=gridCss
+          );
+        }
       }
     })
   : null;

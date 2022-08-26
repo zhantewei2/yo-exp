@@ -1,24 +1,12 @@
-# yo-exp2
+### Include dependencies
 
-## Project setup
-```
-pnpm install
-```
 
-### Compiles and hot-reloads for development
-```
-pnpm run serve
-```
+### vue.config.js
 
-### Compiles and minifies for production
 ```
-pnpm run build
+module.exports = {
+    transpileDependencies:[
+    "@voyo/yo-exp"
+    ],
+}
 ```
-
-### Lints and fixes files
-```
-pnpm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

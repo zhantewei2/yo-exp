@@ -42,20 +42,21 @@ module.exports=({env,declare})=>{
       index: !declare?join("src/index.ts"): join("src/index-type.ts")
     },
     experiments: {
-      outputModule: true
+      // outputModule: true
     },
     optimization: {
       minimize: false
     },
-    target: 'browserslist',
+    target: 'web',
     output:{
+      clean: true,
       "path": join("lib"),
       library:{
-        type:"module",
+        type:"umd",
       },
-      environment: {
-        module: true
-      },
+      // environment: {
+      //   module: true
+      // },
       filename: '[name].js'
     },
 
@@ -72,7 +73,8 @@ module.exports=({env,declare})=>{
       'vue-class-component': 'vue-class-component',
       "@ztwx/utils":"@ztwx/utils",
       "@voyo/core":"@voyo/core",
-      "rxjs":"rxjs"
+      "rxjs":"rxjs",
+      "rxjs/operators":"rxjs/operators"
     },
     module: {
       rules: [

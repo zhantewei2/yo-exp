@@ -41,7 +41,6 @@ import { setting } from "../../setting";
                           ? h(resolveComponent(i.tag), {
                               modelValue: i.value,
                               "onUpdate:modelValue": (v: any) => {
-                                console.log(i)
                                 return i.value = v
                               },
                               disabled: i.disabled || this.disabled,

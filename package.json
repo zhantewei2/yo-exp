@@ -1,6 +1,6 @@
 {
   "name": "@voyo/yo-exp",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": false,
   "scripts": {
     "build:lib": "webpack",

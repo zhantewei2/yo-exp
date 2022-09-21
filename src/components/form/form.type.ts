@@ -3,8 +3,7 @@ import { Validator, SubjectOrder, Subject } from "@ztwx/form";
 export type ControllerVal = string | number | boolean | undefined | null | any;
 export type ControllerValueChangeFn<T extends ControllerVal> = (
   val: T | undefined,
-  controller: YoFormController<T>,
-  controllers: YoControllers
+  controller: YoFormController<T>
 ) => void;
 
 export type ValueChange<T extends ControllerVal> =

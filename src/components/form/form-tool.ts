@@ -61,20 +61,19 @@ export const formGlobalHandle = new GlobalHandle();
 export const handleValueChange = <T extends ControllerVal>(
   valueChange: ValueChange<T>,
   c: YoFormController<T>,
-  controllers: YoControllers,
   init: boolean
 ) => {
   if (init) {
     if (typeof valueChange === "object" && valueChange != null) {
       valueChange.immediate &&
         valueChange.handle &&
-        valueChange.handle(c.value, c, controllers);
+        valueChange.handle(c.value, c);
     }
   } else {
     if (typeof valueChange === "function") {
-      valueChange(c.value, c, controllers);
+      valueChange(c.value, c);
     } else if (typeof valueChange === "object" && valueChange != null) {
-      valueChange.handle && valueChange.handle(c.value, c, controllers);
+      valueChange.handle && valueChange.handle(c.value, c);
     }
   }
 };
@@ -238,18 +237,22 @@ export const createForm = <
         set(c, key, val) {
           if (key === "value") {
             formGlobalHandle.handlePreSetVal(proxyC);
+            Reflect.set(c, key, val);
             c.valueChange &&
-              handleValueChange(c.valueChange, c, controllers, false);
+              handleValueChange(c.valueChange, proxyC, false);
             c._valueChangeSubject.next(val);
+          }else{
+            Reflect.set(c, key, val);
           }
-          return Reflect.set(c, key, val);
+
+          return true;
         },
       });
 
       formGlobalHandle.handlePreSetVal(proxyC);
       // immediate valueChange.
       proxyC.valueChange &&
-        handleValueChange(proxyC.valueChange, proxyC, controllers, true);
+        handleValueChange(proxyC.valueChange, proxyC, true);
 
       return proxyC;
     }

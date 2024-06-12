@@ -1,7 +1,7 @@
 import { VNode } from "vue";
 import { Validator, SubjectOrder, Subject } from "@ztwx/form";
 export declare type ControllerVal = string | number | boolean | undefined | null | any;
-export declare type ControllerValueChangeFn<T extends ControllerVal> = (val: T | undefined, controller: YoFormController<T>, controllers: YoControllers) => void;
+export declare type ControllerValueChangeFn<T extends ControllerVal> = (val: T | undefined, controller: YoFormController<T>) => void;
 export declare type ValueChange<T extends ControllerVal> = ControllerValueChangeFn<T> | {
     immediate?: boolean;
     handle: ControllerValueChangeFn<T>;
@@ -19,6 +19,11 @@ export interface YoFormControllerParam<T extends ControllerVal> {
         [key: string]: any;
     };
     required?: boolean;
+    notBlank?: boolean;
+    maxLength?: number;
+    minLength?: number;
+    maxNum?: number;
+    minNum?: number;
     disableGlobalControllerHandle?: boolean;
     valueChange?: ValueChange<T>;
     disabled?: boolean;

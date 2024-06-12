@@ -13,6 +13,11 @@ export declare type Setting = {
     };
     form: {
         requireText: string;
+        notBlankText: string;
+        minLengthText: string;
+        maxLengthText: string;
+        minNumText: string;
+        maxNumText: string;
         errDynamicClear: boolean;
         errDynamicShow: boolean;
     };

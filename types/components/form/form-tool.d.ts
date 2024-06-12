@@ -12,7 +12,7 @@ export declare class GlobalHandle {
     handleAfterResult(controllers: YoControllers, result: FormResult): FormResult;
 }
 export declare const formGlobalHandle: GlobalHandle;
-export declare const handleValueChange: <T extends unknown>(valueChange: ValueChange<T>, c: YoFormController<T>, controllers: YoControllers, init: boolean) => void;
+export declare const handleValueChange: <T extends unknown>(valueChange: ValueChange<T>, c: YoFormController<T>, init: boolean) => void;
 export declare const demonErrMessage: (valid: Validator, val: ControllerVal) => string;
 export declare class YoFormImpl<T extends FormResult, S extends YoFormControllerPerfect<ControllerVal>> implements YoForm<T, S> {
     controllers: S[];
@@ -26,4 +26,5 @@ export declare class YoFormImpl<T extends FormResult, S extends YoFormController
     clean(): void;
     reset(): void;
 }
+export declare const appendValidator: (c: YoFormControllerPerfect<ControllerVal>) => void;
 export declare const createForm: <T extends FormResult, S extends YoFormControllerPerfect<any>>(originControllers: YoFormController<ControllerVal>[]) => YoForm<T, S>;

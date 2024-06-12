@@ -24,6 +24,12 @@ export interface YoFormControllerParam<T extends ControllerVal> {
   star?: boolean; //star 红色*
   props?: { [key: string]: any };
   required?: boolean;
+  //增加内置校验器
+  notBlank? :boolean; // string trim后不为空
+  maxLength?: number;
+  minLength?: number;
+  maxNum?:number;
+  minNum?:number;
   disableGlobalControllerHandle?: boolean; //禁用全局处理 tag
   valueChange?: ValueChange<T>;
   disabled?: boolean; //disabled;

@@ -9,7 +9,15 @@ import {
   YoFormControllerParam,
 } from "./form.type";
 import { Watch } from "vue-property-decorator";
-import { Subject, requiredValidator, fnValidator, Validator } from "@ztwx/form";
+import {
+  Subject,
+  requiredValidator,
+  fnValidator,
+  Validator,
+  notBlankValidator,
+  minLengthValidator,
+  maxLengthValidator
+} from "@ztwx/form";
 import { setting } from "../../setting";
 import { customRef, reactive } from "vue";
 
@@ -209,6 +217,53 @@ export class YoFormImpl<
   }
 }
 
+const replaceErrText=(txt:string,v:number|string)=>
+    txt.replace(/%s/g,v+"");
+
+export const appendValidator=(c:YoFormControllerPerfect<ControllerVal>)=>{
+
+  if (c.required) {
+    c.validators?.push(
+        new fnValidator(
+            (val) => val === 0 || !!val,
+            () => (c.label || "") + setting.form.requireText
+        )
+    );
+  }
+
+  if(c.notBlank) {
+    c.validators?.push(
+        new notBlankValidator((c.label || "") + setting.form.notBlankText)
+    )
+  }
+
+  if(c.minLength) {
+    c.validators?.push(
+        new minLengthValidator(c.label ||"" + replaceErrText(setting.form.minLengthText,c.minLength),c.minLength)
+    )
+  }
+
+  if(c.maxLength){
+    c.validators?.push(
+        new maxLengthValidator(c.label||'' + replaceErrText(setting.form.maxLengthText,c.maxLength),c.maxLength)
+    )
+  }
+
+  if(c.minNum){
+    c.validators?.push(
+        new maxLengthValidator(c.label||''+ replaceErrText(setting.form.minNumText,c.minNum),c.minNum)
+    )
+  }
+
+
+  if(c.maxNum){
+    c.validators?.push(
+        new maxLengthValidator(c.label||''+ replaceErrText(setting.form.maxNumText,c.maxNum),c.maxNum)
+    )
+  }
+
+}
+
 export const createForm = <
   T extends FormResult,
   S extends YoFormControllerPerfect<ControllerVal>
@@ -222,14 +277,7 @@ export const createForm = <
       c._valueChangeSubject = new Subject<ControllerVal>();
 
       c.validators = c.validators || [];
-      if (c.required) {
-        c.validators.push(
-          new fnValidator(
-            (val) => val === 0 || !!val,
-            () => (c.label || "") + setting.form.requireText
-          )
-        );
-      }
+      appendValidator(c);
       formGlobalHandle.handlePreCreate(c);
 
       assemblyController(c);

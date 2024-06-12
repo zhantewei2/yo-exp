@@ -32,7 +32,7 @@ import { setting } from "../../setting";
                       span:i.span,
                       key: i.id,
                       label: i.label,
-                      important: i.required || i.star,
+                      important: i.required || i.star || i.notBlank,
                     },
                     {
                       default: () => [

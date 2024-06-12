@@ -239,26 +239,26 @@ export const appendValidator=(c:YoFormControllerPerfect<ControllerVal>)=>{
 
   if(c.minLength) {
     c.validators?.push(
-        new minLengthValidator(c.label ||"" + replaceErrText(setting.form.minLengthText,c.minLength),c.minLength)
+        new minLengthValidator((c.label ||"") + replaceErrText(setting.form.minLengthText,c.minLength),c.minLength)
     )
   }
 
   if(c.maxLength){
     c.validators?.push(
-        new maxLengthValidator(c.label||'' + replaceErrText(setting.form.maxLengthText,c.maxLength),c.maxLength)
+        new maxLengthValidator((c.label||'') + replaceErrText(setting.form.maxLengthText,c.maxLength),c.maxLength)
     )
   }
 
   if(c.minNum){
     c.validators?.push(
-        new maxLengthValidator(c.label||''+ replaceErrText(setting.form.minNumText,c.minNum),c.minNum)
+        new maxLengthValidator((c.label||'')+ replaceErrText(setting.form.minNumText,c.minNum),c.minNum)
     )
   }
 
 
   if(c.maxNum){
     c.validators?.push(
-        new maxLengthValidator(c.label||''+ replaceErrText(setting.form.maxNumText,c.maxNum),c.maxNum)
+        new maxLengthValidator((c.label||'')+ replaceErrText(setting.form.maxNumText,c.maxNum),c.maxNum)
     )
   }
 

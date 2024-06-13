@@ -24,6 +24,7 @@ export interface YoFormControllerParam<T extends ControllerVal> {
     minLength?: number;
     maxNum?: number;
     minNum?: number;
+    notEmptyList?: boolean;
     disableGlobalControllerHandle?: boolean;
     valueChange?: ValueChange<T>;
     disabled?: boolean;

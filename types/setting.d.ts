@@ -18,6 +18,7 @@ export declare type Setting = {
         maxLengthText: string;
         minNumText: string;
         maxNumText: string;
+        notEmptyListText: string;
         errDynamicClear: boolean;
         errDynamicShow: boolean;
     };

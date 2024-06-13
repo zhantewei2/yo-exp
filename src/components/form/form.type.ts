@@ -30,6 +30,7 @@ export interface YoFormControllerParam<T extends ControllerVal> {
   minLength?: number;
   maxNum?:number;
   minNum?:number;
+  notEmptyList?: boolean; //数组不可为空且必须存在元素
   disableGlobalControllerHandle?: boolean; //禁用全局处理 tag
   valueChange?: ValueChange<T>;
   disabled?: boolean; //disabled;

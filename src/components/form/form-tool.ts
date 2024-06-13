@@ -16,7 +16,8 @@ import {
   Validator,
   notBlankValidator,
   minLengthValidator,
-  maxLengthValidator
+  maxLengthValidator,
+  notEmptyListValidator
 } from "@ztwx/form";
 import { setting } from "../../setting";
 import { customRef, reactive } from "vue";
@@ -260,6 +261,12 @@ export const appendValidator=(c:YoFormControllerPerfect<ControllerVal>)=>{
   if(c.maxNum!=null){
     c.validators?.push(
         new maxLengthValidator((c.label||'')+ replaceErrText(setting.form.maxNumText,c.maxNum),c.maxNum)
+    )
+  }
+
+  if(c.notEmptyList!){
+    c.validators?.push(
+      new notEmptyListValidator((c.label||'')+ setting.form.notEmptyListText,0)
     )
   }
 

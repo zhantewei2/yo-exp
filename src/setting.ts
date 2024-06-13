@@ -23,6 +23,7 @@ export type Setting = {
     maxLengthText: string;
     minNumText: string;
     maxNumText: string;
+    notEmptyListText:string;
     errDynamicClear: boolean; //数据变更时清除错误
     errDynamicShow: boolean; //用户输入立即校验表单
   };
@@ -64,6 +65,7 @@ export const setting: Setting = {
     maxLengthText: "长度不可超过%s",
     minNumText: "不可大于%s",
     maxNumText: "不可小于%s",
+    notEmptyListText: "集合不可为空",
     errDynamicClear: true,
     errDynamicShow: false,
   },

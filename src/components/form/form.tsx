@@ -47,6 +47,15 @@ import { setting } from "../../setting";
                               ...(i.props || {}),
                             })
                           : null,
+                         i.component?
+                             h(i.component,{
+                                 modelValue: i.value,
+                                 "onUpdate:modelValue": (v: any) => {
+                                     return i.value = v
+                                 },
+                                 disabled: i.disabled || this.disabled,
+                                 ...(i.props || {}),
+                             }):null
                       ],
                       decorator: () =>
                         h(Transition, { name: "yo-fade" }, () =>

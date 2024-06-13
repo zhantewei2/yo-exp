@@ -1,5 +1,6 @@
-import { VNode } from "vue";
+import { VNode,Component } from "vue";
 import { Validator, SubjectOrder, Subject } from "@ztwx/form";
+import {Vue} from "vue-class-component";
 export declare type ControllerVal = string | number | boolean | undefined | null | any;
 export declare type ControllerValueChangeFn<T extends ControllerVal> = (val: T | undefined, controller: YoFormController<T>) => void;
 export declare type ValueChange<T extends ControllerVal> = ControllerValueChangeFn<T> | {
@@ -33,12 +34,19 @@ export interface YoFormControllerParam<T extends ControllerVal> {
 export declare type YoFormControllerTag<T extends ControllerVal> = {
     tag: string;
     render?: never;
+    component? :never;
 } & YoFormControllerParam<T>;
+
 export declare type YoFormControllerRender<T extends ControllerVal> = {
     tag?: never;
+    component? :never;
     render: (controller: YoFormControllerPerfect<T>, dictController: DictController) => VNode;
 } & YoFormControllerParam<T>;
-export declare type YoFormController<T extends ControllerVal> = YoFormControllerTag<T> | YoFormControllerRender<T>;
+
+
+
+export declare type YoFormController<T extends ControllerVal> = YoFormControllerTag<T> | YoFormControllerRender<T> | YoFormControllerComponent<T>;
+
 export declare type YoFormControllerPerfect<T extends ControllerVal> = {
     _originVal?: T;
     _setOrigin(val: T, skipModifyCurrentVal: boolean): void;

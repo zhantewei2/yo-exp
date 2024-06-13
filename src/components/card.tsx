@@ -3,7 +3,7 @@ import { setting } from "../setting";
 
 export const Card = (
   props: { title?: string },
-  { slots }: { slots: { header?: Slot; default?: Slot; footer?: Slot } }
+  { slots }: { slots: {  header?: Slot; default?: Slot; footer?: Slot } }
 ) => {
   return (
     <div class="yo-card">

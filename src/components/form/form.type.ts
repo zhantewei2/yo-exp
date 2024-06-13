@@ -1,4 +1,4 @@
-import { VNode } from "vue";
+import {Component,ConcreteComponent, VNode} from "vue";
 import { Validator, SubjectOrder, Subject } from "@ztwx/form";
 export type ControllerVal = string | number | boolean | undefined | null | any;
 export type ControllerValueChangeFn<T extends ControllerVal> = (
@@ -37,22 +37,28 @@ export interface YoFormControllerParam<T extends ControllerVal> {
   shadow?: boolean; /// 不显示于ui;
 }
 
-export type YoFormControllerTag<T extends ControllerVal> = {
+export declare type YoFormControllerTag<T extends ControllerVal> = {
   tag: string;
   render?: never;
+  component? :never;
 } & YoFormControllerParam<T>;
 
-export type YoFormControllerRender<T extends ControllerVal> = {
+export declare type YoFormControllerRender<T extends ControllerVal> = {
   tag?: never;
-  render: (
-    controller: YoFormControllerPerfect<T>,
-    dictController: DictController
-  ) => VNode; //value  render渲染
+  component? :never;
+  render: (controller: YoFormControllerPerfect<T>, dictController: DictController) => VNode;
+} & YoFormControllerParam<T>;
+
+export declare type YoFormControllerComponent<T extends  ControllerVal> = {
+  component: ConcreteComponent<any>;
+  tag?:never;
+  render?: never;
 } & YoFormControllerParam<T>;
 
 export type YoFormController<T extends ControllerVal> =
   | YoFormControllerTag<T>
-  | YoFormControllerRender<T>;
+  | YoFormControllerRender<T>
+  | YoFormControllerComponent<T>;
 
 export type YoFormControllerPerfect<T extends ControllerVal> = {
   //private property
